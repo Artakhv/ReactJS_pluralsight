@@ -5,10 +5,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import App from './components/App'
 import "./index.css";
 
-function Hi() {
-    return <p>Hi.</p>;
-}
-
 render(
     <Router>
         <App />
