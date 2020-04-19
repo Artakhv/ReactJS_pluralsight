@@ -5,8 +5,13 @@ import * as authorActions from "../../redux/actions/authorActions";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import CourseList from "./CourseList";
+import { Redirect } from "react-router-dom";
 
 class CoursesPage extends Component {
+  state = {
+    redirectToAddCoursePage: false
+  }
+
   componentDidMount() {
       //// here I can use destructuring
     if (this.props.courses.length === 0) {
@@ -24,7 +29,13 @@ class CoursesPage extends Component {
   render() {
     return (
       <Fragment>
+        {this.state.redirectToAddCoursePage && <Redirect to="/course"/>}
         <h2>Courses</h2>
+        <button
+        style={{marginBottom:20}}
+        className = "btn btn-primary add-course"
+        onClick = {()=>this.setState({redirectToAddCoursePage:true})}
+        >Add Course</button>
         <CourseList courses={this.props.courses} />
       </Fragment>
     );

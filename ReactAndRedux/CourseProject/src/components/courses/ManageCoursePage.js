@@ -37,8 +37,10 @@ function ManageCoursePage(props) {
 
   function handleSave(event) {
     event.preventDefault();
-    console.log(course)
-    props.saveCourse(course);
+    console.log(course);
+    props.saveCourse(course).then(() => {
+      props.history.push("/courses");
+    });
   }
 
   return (
@@ -61,6 +63,7 @@ ManageCoursePage.propTypes = {
   loadCourses: PropTypes.func.isRequired,
   loadAuthors: PropTypes.func.isRequired,
   saveCourse: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
