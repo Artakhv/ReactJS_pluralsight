@@ -25,7 +25,7 @@ class CoursesPage extends Component {
       });
     }
   }
-
+//
   render() {
     return (
       <Fragment>
